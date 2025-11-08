@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/songhyowon/코인데이터분석/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

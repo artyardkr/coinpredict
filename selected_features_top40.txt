@@ -1,0 +1,43 @@
+Top 40 Features (FRA)
+======================================================================
+
+ 1. EMA5_close
+ 2. SMA5_close
+ 3. OBV
+ 4. RSI
+ 5. Williams_R
+ 6. BB_low
+ 7. CCI
+ 8. Stoch_K
+ 9. bc_miners_revenue
+10. daily_return
+11. fear_greed_index
+12. MACD
+13. EMA100_close
+14. SPX
+15. EURUSD
+16. MFI
+17. MACD_signal
+18. SMA10_marketcap
+19. ROC
+20. QQQ
+21. bc_difficulty
+22. SMA20_marketcap
+23. EMA10_close
+24. EMA30_close
+25. VIXCLS
+26. BSV
+27. UNRATE
+28. EMA200_close
+29. bc_mempool_size
+30. MACD_diff
+31. DEXUSEU
+32. SMA10_close
+33. bc_total_bitcoins
+34. SMA5_marketcap
+35. BB_high
+36. GOLD
+37. DGS10
+38. M2SL
+39. bc_n_transactions
+40. EMA20_marketcap

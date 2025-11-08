@@ -1,0 +1,42 @@
+기술적 지표 제외 특성 목록
+======================================================================
+
+총 37개
+
+1. Volume
+2. QQQ
+3. SPX
+4. UUP
+5. EURUSD
+6. GOLD
+7. SILVER
+8. OIL
+9. BSV
+10. DGS10
+11. DFF
+12. CPIAUCSL
+13. UNRATE
+14. M2SL
+15. GDP
+16. DEXUSEU
+17. DTWEXBGS
+18. T10Y2Y
+19. VIXCLS
+20. fear_greed_index
+21. google_trends_btc
+22. bc_hash_rate
+23. bc_difficulty
+24. bc_n_transactions
+25. bc_n_unique_addresses
+26. bc_total_bitcoins
+27. bc_miners_revenue
+28. bc_transaction_fees
+29. bc_mempool_size
+30. cm_adractcnt
+31. cm_txcnt
+32. cm_txtfrvaladjusd
+33. cm_txtfrvalmeanusd
+34. cm_hashrate
+35. cm_isstotusd
+36. cm_feetotusd
+37. cm_diffmean

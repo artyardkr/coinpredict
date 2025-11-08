@@ -1,0 +1,116 @@
+======================================================================
+통합 데이터 컬럼 목록
+======================================================================
+
+총 91개 컬럼
+
+
+BTC 원본 데이터 (5개):
+  - Open
+  - High
+  - Low
+  - Close
+  - Volume
+
+이동평균 (EMA/SMA) (24개):
+  - EMA5_close
+  - EMA10_close
+  - EMA14_close
+  - EMA20_close
+  - EMA30_close
+  - EMA100_close
+  - EMA200_close
+  - EMA100_volume
+  - EMA200_volume
+  - SMA5_close
+  - SMA10_close
+  - SMA20_close
+  - SMA30_close
+  - EMA5_marketcap
+  - EMA10_marketcap
+  - EMA14_marketcap
+  - EMA20_marketcap
+  - EMA30_marketcap
+  - EMA100_marketcap
+  - EMA200_marketcap
+  - SMA5_marketcap
+  - SMA10_marketcap
+  - SMA20_marketcap
+  - SMA30_marketcap
+
+모멘텀 지표 (6개):
+  - RSI
+  - Stoch_K
+  - Stoch_D
+  - Williams_R
+  - ROC
+  - MFI
+
+트렌드 지표 (5개):
+  - MACD
+  - MACD_signal
+  - MACD_diff
+  - ADX
+  - CCI
+
+변동성 지표 (6개):
+  - BB_high
+  - BB_low
+  - BB_mid
+  - BB_width
+  - ATR
+  - volatility_20d
+
+거래량 지표 (2개):
+  - OBV
+  - volume_change
+
+수익률 (2개):
+  - daily_return
+  - cumulative_return
+
+전통 시장 (8개):
+  - QQQ
+  - SPX
+  - UUP
+  - EURUSD
+  - GOLD
+  - SILVER
+  - OIL
+  - BSV
+
+거시경제 (10개):
+  - DGS10
+  - DFF
+  - CPIAUCSL
+  - UNRATE
+  - M2SL
+  - GDP
+  - DEXUSEU
+  - DTWEXBGS
+  - T10Y2Y
+  - VIXCLS
+
+감정/관심 (2개):
+  - fear_greed_index
+  - google_trends_btc
+
+온체인 (18개):
+  - bc_market_price
+  - bc_hash_rate
+  - bc_difficulty
+  - bc_n_transactions
+  - bc_n_unique_addresses
+  - bc_total_bitcoins
+  - bc_market_cap
+  - bc_miners_revenue
+  - bc_transaction_fees
+  - bc_mempool_size
+  - cm_adractcnt
+  - cm_txcnt
+  - cm_txtfrvaladjusd
+  - cm_txtfrvalmeanusd
+  - cm_hashrate
+  - cm_isstotusd
+  - cm_feetotusd
+  - cm_diffmean

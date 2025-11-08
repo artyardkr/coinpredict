@@ -1,0 +1,11 @@
+Strategy,Version,Return (%),Sharpe,Volatility (%),Max DD (%),Win Rate (%),Trades
+Buy-and-Hold,V1,71.91,1.231,38.03,-28.14,50.68,0
+Buy-and-Hold,V2,71.91,1.231,38.03,-28.14,50.68,0
+Long-Only (ElasticNet),V1,61.86,1.354,30.05,-22.19,32.82,35
+Long-Only (ElasticNet),V2,53.44,1.185,29.93,-22.08,34.56,37
+Long-Short (ElasticNet),V1,25.73,0.454,38.80,-43.87,49.71,36
+Long-Short (ElasticNet),V2,11.85,0.213,38.83,-38.09,49.90,38
+Threshold 1% (ElasticNet),V1,89.94,1.967,29.27,-21.26,30.68,25
+Threshold 1% (ElasticNet),V2,46.55,1.070,29.09,-21.54,30.87,17
+Threshold 2% (ElasticNet),V1,73.08,1.675,28.37,-26.78,27.18,15
+Threshold 2% (ElasticNet),V2,84.25,1.985,27.31,-13.34,27.57,13

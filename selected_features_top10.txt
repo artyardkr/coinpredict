@@ -1,0 +1,13 @@
+Top 10 Features (FRA)
+======================================================================
+
+ 1. EMA5_close
+ 2. SMA5_close
+ 3. OBV
+ 4. RSI
+ 5. Williams_R
+ 6. BB_low
+ 7. CCI
+ 8. Stoch_K
+ 9. bc_miners_revenue
+10. daily_return

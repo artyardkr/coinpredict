@@ -1,0 +1,2 @@
+threshold,train_samples,test_samples,total_features,selected_features,rf_test_accuracy,xgb_test_accuracy,paper3_accuracy,cnn_lstm_test_accuracy
+0.5,1199,515,67,25,0.537864077669903,0.487378640776699,0.8203,0.615686274509804

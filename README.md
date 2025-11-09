@@ -372,7 +372,7 @@ python structural_change_tests_all_vars.py
 
 ## 👤 저자
 
-**송효원 (Song Hyowon)**
+**송성원 (Song Seongwon)**
 - 연구 기간: 2025년 10월 - 11월 (4주)
 - 지도: Claude Code (Anthropic Sonnet 4.5)
 

@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Read(//Users/songhyowon/코인데이터분석/**)"
+      "Read(//Users/songhyowon/코인데이터분석/**)",
+      "Bash(mkdir:*)"
     ],
     "deny": [],
     "ask": []

@@ -14,7 +14,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.linear_model import LinearRegression, Ridge, Lasso, ElasticNet
+from sklearn.linear_model import Ridge, Lasso, ElasticNet
 from sklearn.svm import SVR
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
@@ -140,7 +140,6 @@ models = {
     'ElasticNet': ElasticNet(alpha=1.0, l1_ratio=0.5, max_iter=10000),
     'Ridge': Ridge(alpha=1.0),
     'Lasso': Lasso(alpha=1.0, max_iter=10000),
-    'Linear Regression': LinearRegression(),
     'Random Forest': RandomForestRegressor(n_estimators=200, max_depth=10,
                                           min_samples_split=20, min_samples_leaf=10,
                                           random_state=42, n_jobs=-1),
@@ -259,7 +258,7 @@ gs = fig.add_gridspec(4, 3, hspace=0.35, wspace=0.3)
 
 # 1. R² Comparison
 ax1 = fig.add_subplot(gs[0, 0])
-colors = ['#2ecc71' if 'ElasticNet' in x or 'Ridge' in x or 'Lasso' in x or 'Linear' in x
+colors = ['#2ecc71' if 'ElasticNet' in x or 'Ridge' in x or 'Lasso' in x
           else '#3498db' for x in results_sorted['Model']]
 bars = ax1.barh(range(len(results_sorted)), results_sorted['Test R²'], color=colors, alpha=0.7)
 ax1.set_yticks(range(len(results_sorted)))

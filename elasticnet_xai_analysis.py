@@ -21,8 +21,15 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # 한글 폰트 설정
-plt.rcParams['font.family'] = 'AppleGothic'
-plt.rcParams['axes.unicode_minus'] = False
+try:
+    plt.rcParams['font.family'] = 'AppleGothic'
+    plt.rcParams['axes.unicode_minus'] = False
+except:
+    try:
+        plt.rcParams['font.family'] = 'Apple SD Gothic Neo'
+        plt.rcParams['axes.unicode_minus'] = False
+    except:
+        print("한글 폰트를 찾을 수 없습니다. AppleGothic 또는 Apple SD Gothic Neo를 설치해주세요.")
 
 print("="*80)
 print("ElasticNet XAI 분석")
@@ -226,7 +233,7 @@ print("\n" + "="*60)
 print("[6/6] 시각화 생성 중...")
 print("="*60)
 
-fig = plt.figure(figsize=(22, 16))
+fig = plt.figure(figsize=(30, 24))
 
 # (1) Top 20 계수
 ax1 = plt.subplot(4, 4, 1)
@@ -234,9 +241,9 @@ top_coef = coef_df_nonzero.head(20).sort_values('Coefficient')
 colors = ['red' if x < 0 else 'green' for x in top_coef['Coefficient']]
 ax1.barh(range(len(top_coef)), top_coef['Coefficient'], color=colors, alpha=0.7)
 ax1.set_yticks(range(len(top_coef)))
-ax1.set_yticklabels(top_coef['Feature'], fontsize=8)
-ax1.set_xlabel('계수 (Coefficient)', fontweight='bold')
-ax1.set_title('Top 20 변수 계수', fontsize=12, fontweight='bold')
+ax1.set_yticklabels(top_coef['Feature'], fontsize=9)
+ax1.set_xlabel('계수 (Coefficient)', fontweight='bold', fontsize=15)
+ax1.set_title('Top 20 변수 계수', fontsize=15, fontweight='bold')
 ax1.axvline(0, color='black', linewidth=1)
 ax1.grid(True, alpha=0.3, axis='x')
 
@@ -245,9 +252,9 @@ ax2 = plt.subplot(4, 4, 2)
 top_importance = importance_df.head(20)
 ax2.barh(range(len(top_importance)), top_importance['Importance'], color='steelblue', alpha=0.7)
 ax2.set_yticks(range(len(top_importance)))
-ax2.set_yticklabels(top_importance['Feature'], fontsize=8)
-ax2.set_xlabel('중요도 (|계수|)', fontweight='bold')
-ax2.set_title('Top 20 Feature Importance', fontsize=12, fontweight='bold')
+ax2.set_yticklabels(top_importance['Feature'], fontsize=9)
+ax2.set_xlabel('중요도 (|계수|)', fontweight='bold', fontsize=15)
+ax2.set_title('Top 20 Feature Importance', fontsize=15, fontweight='bold')
 ax2.grid(True, alpha=0.3, axis='x')
 
 # (3) 누적 중요도
@@ -255,9 +262,9 @@ ax3 = plt.subplot(4, 4, 3)
 ax3.plot(range(1, len(importance_df)+1), importance_df['Cumulative'], linewidth=2, color='purple')
 ax3.axhline(0.8, color='red', linestyle='--', linewidth=1, label='80%')
 ax3.axvline(n_features_80, color='red', linestyle='--', linewidth=1)
-ax3.set_xlabel('변수 개수', fontweight='bold')
-ax3.set_ylabel('누적 중요도', fontweight='bold')
-ax3.set_title('누적 Feature Importance', fontsize=12, fontweight='bold')
+ax3.set_xlabel('변수 개수', fontweight='bold', fontsize=15)
+ax3.set_ylabel('누적 중요도', fontweight='bold', fontsize=15)
+ax3.set_title('누적 Feature Importance', fontsize=15, fontweight='bold')
 ax3.legend()
 ax3.grid(True, alpha=0.3)
 ax3.text(n_features_80, 0.85, f'{n_features_80}개', ha='center', fontweight='bold')
@@ -266,25 +273,25 @@ ax3.text(n_features_80, 0.85, f'{n_features_80}개', ha='center', fontweight='bo
 ax4 = plt.subplot(4, 4, 4)
 ax4.hist(coefficients[coefficients != 0], bins=30, color='steelblue', alpha=0.7, edgecolor='black')
 ax4.axvline(0, color='red', linestyle='--', linewidth=2)
-ax4.set_xlabel('계수 값', fontweight='bold')
-ax4.set_ylabel('빈도', fontweight='bold')
-ax4.set_title('계수 분포 (Non-zero)', fontsize=12, fontweight='bold')
+ax4.set_xlabel('계수 값', fontweight='bold', fontsize=15)
+ax4.set_ylabel('빈도', fontweight='bold', fontsize=15)
+ax4.set_title('계수 분포 (Non-zero)', fontsize=15, fontweight='bold')
 ax4.grid(True, alpha=0.3, axis='y')
 
 # (5) SHAP Summary Plot
 ax5 = plt.subplot(4, 4, (5, 6))
 shap.summary_plot(shap_values_test, X_test_scaled, feature_names=feature_cols,
                   show=False, max_display=15, plot_size=(8, 5))
-plt.title('SHAP Summary Plot (Top 15)', fontsize=12, fontweight='bold')
+plt.title('SHAP Summary Plot (Top 15)', fontsize=15, fontweight='bold')
 
 # (6) SHAP Bar Plot
 ax6 = plt.subplot(4, 4, (7, 8))
 top_shap = shap_df.head(20)
 ax6.barh(range(len(top_shap)), top_shap['SHAP_Importance'], color='coral', alpha=0.7)
 ax6.set_yticks(range(len(top_shap)))
-ax6.set_yticklabels(top_shap['Feature'], fontsize=8)
-ax6.set_xlabel('평균 |SHAP Value|', fontweight='bold')
-ax6.set_title('Top 20 SHAP Importance', fontsize=12, fontweight='bold')
+ax6.set_yticklabels(top_shap['Feature'], fontsize=9)
+ax6.set_xlabel('평균 |SHAP Value|', fontweight='bold', fontsize=15)
+ax6.set_title('Top 20 SHAP Importance', fontsize=15, fontweight='bold')
 ax6.grid(True, alpha=0.3, axis='x')
 
 # (7) 개별 예측 1: 정확
@@ -298,10 +305,10 @@ sample_shap_df = pd.DataFrame({
 colors_sample = ['red' if x < 0 else 'green' for x in sample_shap_df['SHAP']]
 ax7.barh(range(len(sample_shap_df)), sample_shap_df['SHAP'], color=colors_sample, alpha=0.7)
 ax7.set_yticks(range(len(sample_shap_df)))
-ax7.set_yticklabels(sample_shap_df['Feature'], fontsize=7)
-ax7.set_xlabel('SHAP Value', fontweight='bold')
+ax7.set_yticklabels(sample_shap_df['Feature'], fontsize=10)
+ax7.set_xlabel('SHAP Value', fontweight='bold', fontsize=12)
 ax7.set_title(f'가장 정확한 예측\n실제: ${y_test[idx]:,.0f}, 예측: ${y_pred_test[idx]:,.0f}',
-             fontsize=10, fontweight='bold')
+             fontsize=12, fontweight='bold')
 ax7.axvline(0, color='black', linewidth=1)
 ax7.grid(True, alpha=0.3, axis='x')
 
@@ -316,10 +323,10 @@ sample_shap_df = pd.DataFrame({
 colors_sample = ['red' if x < 0 else 'green' for x in sample_shap_df['SHAP']]
 ax8.barh(range(len(sample_shap_df)), sample_shap_df['SHAP'], color=colors_sample, alpha=0.7)
 ax8.set_yticks(range(len(sample_shap_df)))
-ax8.set_yticklabels(sample_shap_df['Feature'], fontsize=7)
-ax8.set_xlabel('SHAP Value', fontweight='bold')
+ax8.set_yticklabels(sample_shap_df['Feature'], fontsize=10)
+ax8.set_xlabel('SHAP Value', fontweight='bold', fontsize=12)
 ax8.set_title(f'과대평가 (예측 > 실제)\n실제: ${y_test[idx]:,.0f}, 예측: ${y_pred_test[idx]:,.0f}',
-             fontsize=10, fontweight='bold')
+             fontsize=12, fontweight='bold')
 ax8.axvline(0, color='black', linewidth=1)
 ax8.grid(True, alpha=0.3, axis='x')
 
@@ -334,10 +341,10 @@ sample_shap_df = pd.DataFrame({
 colors_sample = ['red' if x < 0 else 'green' for x in sample_shap_df['SHAP']]
 ax9.barh(range(len(sample_shap_df)), sample_shap_df['SHAP'], color=colors_sample, alpha=0.7)
 ax9.set_yticks(range(len(sample_shap_df)))
-ax9.set_yticklabels(sample_shap_df['Feature'], fontsize=7)
-ax9.set_xlabel('SHAP Value', fontweight='bold')
+ax9.set_yticklabels(sample_shap_df['Feature'], fontsize=10)
+ax9.set_xlabel('SHAP Value', fontweight='bold', fontsize=12)
 ax9.set_title(f'과소평가 (예측 < 실제)\n실제: ${y_test[idx]:,.0f}, 예측: ${y_pred_test[idx]:,.0f}',
-             fontsize=10, fontweight='bold')
+             fontsize=12, fontweight='bold')
 ax9.axvline(0, color='black', linewidth=1)
 ax9.grid(True, alpha=0.3, axis='x')
 
@@ -347,15 +354,15 @@ comparison_df = coef_df.merge(shap_df, on='Feature')
 comparison_df = comparison_df[comparison_df['Abs_Coefficient'] > 0]
 ax10.scatter(comparison_df['Abs_Coefficient'], comparison_df['SHAP_Importance'],
             alpha=0.5, s=50, color='purple')
-ax10.set_xlabel('계수 절댓값', fontweight='bold')
-ax10.set_ylabel('SHAP 중요도', fontweight='bold')
-ax10.set_title('계수 vs SHAP 중요도', fontsize=12, fontweight='bold')
+ax10.set_xlabel('계수 절댓값', fontweight='bold', fontsize=15)
+ax10.set_ylabel('SHAP 중요도', fontweight='bold', fontsize=15)
+ax10.set_title('계수 vs SHAP 중요도', fontsize=15, fontweight='bold')
 ax10.grid(True, alpha=0.3)
 
 # 상관계수
 corr = comparison_df['Abs_Coefficient'].corr(comparison_df['SHAP_Importance'])
 ax10.text(0.05, 0.95, f'상관계수: {corr:.3f}', transform=ax10.transAxes,
-         fontsize=10, verticalalignment='top', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+         fontsize=12, verticalalignment='top', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
 
 # (11) 양수/음수 계수 비율
 ax11 = plt.subplot(4, 4, 13)
@@ -370,8 +377,8 @@ bars = ax11.bar(labels_coef, coef_stats, color=colors_coef, alpha=0.7)
 for bar, val in zip(bars, coef_stats):
     ax11.text(bar.get_x() + bar.get_width()/2, val, f'{val}개',
             ha='center', va='bottom', fontweight='bold')
-ax11.set_ylabel('변수 개수', fontweight='bold')
-ax11.set_title('계수 부호 분포', fontsize=12, fontweight='bold')
+ax11.set_ylabel('변수 개수', fontweight='bold', fontsize=15)
+ax11.set_title('계수 부호 분포', fontsize=15, fontweight='bold')
 ax11.grid(True, alpha=0.3, axis='y')
 
 # (12) 요약
@@ -389,7 +396,7 @@ summary = f"""
    총 변수: {len(feature_cols)}개
    사용 변수: {np.sum(coefficients != 0)}개
    제거 변수: {np.sum(coefficients == 0)}개
-   제거율: {np.sum(coefficients == 0)/len(coefficients)*100:.1f}%
+   제거율: {np.sum(coefficients == 0)/len(feature_cols)*100:.1f}%
 
 3. Top 5 중요 변수:
    {coef_df_nonzero.iloc[0]['Feature'][:25]}: {coef_df_nonzero.iloc[0]['Coefficient']:+.4f}
@@ -410,12 +417,12 @@ summary = f"""
    상관계수: {corr:.3f}
    {'→ 일치도 높음' if corr > 0.8 else '→ 일치도 보통' if corr > 0.5 else '→ 일치도 낮음'}
 """
-ax12.text(0.05, 0.95, summary, fontsize=9, verticalalignment='top',
-         family='monospace', transform=ax12.transAxes)
-ax12.set_title('종합 요약', fontsize=14, fontweight='bold', loc='left')
+ax12.text(0.05, 0.95, summary, fontsize=12, verticalalignment='top',
+         family='monospace', transform=ax12.transAxes, linespacing=1.5)
+ax12.set_title('종합 요약', fontsize=18, fontweight='bold', loc='left')
 
-plt.tight_layout()
-plt.savefig('elasticnet_xai_analysis.png', dpi=300, bbox_inches='tight')
+plt.subplots_adjust(hspace=0.6, wspace=0.4)
+plt.savefig('elasticnet_xai_analysis.png', dpi=200, bbox_inches='tight', pad_inches=0.7)
 print("✅ 저장: elasticnet_xai_analysis.png")
 
 # ========================================

@@ -118,8 +118,8 @@ def backtest_strategy(df, strategy_type='long_only', threshold=0.0, initial_capi
     - portfolio_values: 일별 포트폴리오 가치
     """
 
-    TRANSACTION_COST = 0.01  # 1% 거래 비용
-    SHORT_COST = 0.005       # 0.5% 숏 비용
+    TRANSACTION_COST = 0.0  # 거래 비용 없음
+    SHORT_COST = 0.0       # 숏 비용 없음
 
     capital = initial_capital
     position = None  # None, 'long', 'short'

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 1: References - Academic Papers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; }
+        .slide { width: 1280px; height: 720px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="slide bg-white p-12 flex flex-col">
+        <h1 class="text-4xl font-bold text-gray-800 border-b-4 border-gray-800 pb-2">참고문헌 - 학술 논문</h1>
+        <div class="flex-grow mt-6 grid grid-cols-2 gap-8">
+            <!-- 선행 연구 -->
+            <div>
+                <h2 class="text-3xl font-bold text-gray-700 mb-4">📚 선행 연구 (비트코인 가격 예측)</h2>
+                <div class="space-y-3 text-lg">
+                    <div class="p-3 bg-yellow-50 rounded-md">
+                        <p class="font-bold">Kahneman & Tversky (1979) - Prospect Theory <span class="text-yellow-600">★ 2002 노벨 경제학상</span></p>
+                        <p class="text-sm text-gray-600">→ 손실 회피 편향, 투자자 심리 분석의 이론적 근거</p>
+                    </div>
+                    <p class="font-semibold text-gray-600 mt-2">초기 연구 (2013-2019): 다양한 데이터 소스 탐색</p>
+                    <ul class="list-disc list-inside text-base text-gray-600 space-y-1 pl-2">
+                        <li><strong>Kristoufek (2013):</strong> Google Trends, Wikipedia 조회수</li>
+                        <li><strong>Jang & Lee (2017):</strong> 블록체인 정보 + 거시경제 지표</li>
+                        <li><strong>Abraham et al. (2018):</strong> Google Trends + 트윗량</li>
+                        <li><strong>Valencia et al. (2019):</strong> 감정(Sentiment) 분석</li>
+                        <li><strong>Saad et al. (2019):</strong> 채굴자 수익, 해시율 등 온체인 데이터</li>
+                        <li><strong>Mallqui & Fernandes (2019):</strong> 다차원 데이터 통합</li>
+                    </ul>
+                    <p class="mt-2 p-2 bg-gray-100 rounded text-center font-semibold">💡 선행 연구 결론: 다양한 데이터 소스를 통합할수록 예측력 향상</p>
+                </div>
+            </div>
+            <!-- 본 연구 참고 논문 -->
+            <div>
+                <h2 class="text-3xl font-bold text-gray-700 mb-4">📖 본 연구 참고 논문 (2025년 최신)</h2>
+                <div class="space-y-4 text-lg">
+                    <div class="p-4 border-l-4 border-blue-500 bg-blue-50">
+                        <p class="font-bold text-blue-800">1. Demosthenous et al. (2025)</p>
+                        <p class="text-gray-700">"From On-chain to Macro: Data Source Diversity"</p>
+                        <p class="text-sm text-gray-600">→ 5개 데이터 카테고리 통합 (429개→100개 변수)</p>
+                    </div>
+                    <div class="p-4 border-l-4 border-green-500 bg-green-50">
+                        <p class="font-bold text-green-800">2. Kehinde et al. (2025)</p>
+                        <p class="text-gray-700">"Helformer: Attention-based Deep Learning"</p>
+                        <p class="text-sm text-gray-600">→ Holt-Winters + Transformer 결합</p>
+                    </div>
+                    <div class="p-4 border-l-4 border-purple-500 bg-purple-50">
+                        <p class="font-bold text-purple-800">3. Dubey & Enke (2025)</p>
+                        <p class="text-gray-700">"Bitcoin Price Direction using On-chain Data"</p>
+                        <p class="text-sm text-gray-600">→ 온체인 데이터 5개 카테고리, Boruta Feature Selection</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
